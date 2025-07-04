@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "alex-war-analyzer",
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/main.py"
+    }
+  ],
+  "env": {
+    "ANTHROPIC_API_KEY": "@anthropic_api_key"
+  },
+  "functions": {
+    "api/main.py": {
+      "maxDuration": 300,
+      "memory": 1024
+    }
+  }
+}
